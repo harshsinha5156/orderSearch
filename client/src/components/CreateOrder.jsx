@@ -18,7 +18,7 @@ export default function CreateOrder() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:5000/api/orders", order);
+    await axios.post("https://ordersearch-backend.onrender.com/api/orders", order);
     alert("Order created!");
     setOrder({ customerName: "", product: "", quantity: 1 });
   };

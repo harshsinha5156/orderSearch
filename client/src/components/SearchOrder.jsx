@@ -7,7 +7,7 @@ export default function SearchOrder() {
   let ans = results[0];
 
   const handleSearch = async () => {
-    const res = await axios.get(`http://localhost:5000/api/orders/search?q=${query}`);
+    const res = await axios.get(`https://ordersearch-backend.onrender.com/api/orders/search?q=${query}`);
     setResults(res.data);
     console.log(res.data);
     

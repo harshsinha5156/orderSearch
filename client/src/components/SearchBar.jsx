@@ -9,7 +9,7 @@ const SearchBar = ({ searchQuery, setSearchQuery, searchBy, setSearchBy, onSearc
   console.log("ans", ans);
 
   const handleSearch = async () => {
-    const res = await axios.get(`http://localhost:5000/api/orders/search?q=${query}`);
+    const res = await axios.get(`https://ordersearch-backend.onrender.com/api/orders/search?q=${query}`);
     setResults(res.data);
   };
 
