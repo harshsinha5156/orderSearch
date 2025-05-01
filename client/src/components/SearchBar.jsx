@@ -9,13 +9,14 @@ const SearchBar = ({ searchQuery, setSearchQuery, searchBy, setSearchBy, onSearc
   console.log("ans", ans);
 
   const handleSearch = async () => {
-    const res = await axios.get(`http://localhost:5000/api/orders/search?q=${query}`);
+    const res = await axios.get(`https://ordersearch-backend.onrender.com/api/orders/search?q=${query}`);
     setResults(res.data);
   };
 
   return (
     <>
     <div className="p-4 bg-white shadow rounded flex flex-col md:flex-row items-center gap-4 justify-center">
+      
       <div className="flex items-center gap-4 mb-4 md:mb-0 border-2 py-3 px-5 rounded-md border-black"> 
       <div className="flex gap-4">
         {["Order Id", "Mobile", "Name", "Email"].map((type) => (
