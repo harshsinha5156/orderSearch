@@ -9,7 +9,7 @@ const SearchBar = ({ searchQuery, setSearchQuery, searchBy, setSearchBy, onSearc
   console.log("ans", ans);
 
   const handleSearch = async () => {
-    const res = await axios.get(`https://ordersearch-backend.onrender.com/api/orders/search?q=${query}`);
+    const res = await axios.get(`http://localhost:5000/api/orders/search?q=${query}`);
     setResults(res.data);
   };
 
@@ -59,11 +59,11 @@ const SearchBar = ({ searchQuery, setSearchQuery, searchBy, setSearchBy, onSearc
           </div>
           <div>
             <strong>Buyer Details:</strong><br />
-            {ans.customerName}<br />
-            {ans.customerPlace}<br />
+            {ans.customer_name}<br />
+            {ans.customer_shipping_address}<br />
             Email: {ans.customerEmail}<br />
-            Phone: {ans.customerPhone}<br />
-            Pincode: {ans.customerPincode}<br />
+            Phone: {ans.customer_contact}<br />
+            Pincode: {ans.customer_pin_code}<br />
           </div>
           <div>
             <strong>Total:</strong> 799
@@ -78,14 +78,13 @@ const SearchBar = ({ searchQuery, setSearchQuery, searchBy, setSearchBy, onSearc
         <div style={{ marginTop: '20px', display: 'flex', gap: '20px' }}>
           <img src="https://via.placeholder.com/70x70.png?text=Card" alt="product" />
           <div>
-            <a href="#" style={{ color: '#0000ee' }}>{ans.ProductName}</a><br />
-            Model: {ans.ProductModel}<br />
-            Price: Rs. {ans.TotalPrice}<br />
-            Date: 0000-00-00 00:00:00<br />
-            Discount:<br />
-            Qty: {ans.ProductQty}<br />
-            Delivery Charge: 0<br />
-            Status: {ans.ProductStatus}<br />
+            <a href="#" style={{ color: '#0000ee' }}>{ans.product_name}</a><br />
+            Model: {ans.product_model}<br />
+            Price: Rs. {ans.price}<br />
+            Discount:{ans.discount}<br />
+            Qty: {ans.quantity}<br />
+            Delivery Charge: {ans.delivery_charge}<br />
+            Status: {ans.order_status}<br />
           </div>
         </div>
       </div>
